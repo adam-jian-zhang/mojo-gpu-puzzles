@@ -1,38 +1,9 @@
 [workspace]
 authors = ["Modular <hello@modular.com>"]
-channels = ["https://conda.modular.com/max-nightly", "conda-forge"]
+channels = ["https://conda.modular.com/max-nightly", "https://prefix.dev/conda-forge", "https://prefix.dev/nvidia"]
 name = "mojo-gpu-puzzles"
-platforms = ["linux-64", "linux-aarch64", "osx-arm64"]
+platforms = [ "osx-arm64"]
 version = "1.0.0"
-
-[feature.nvidia]
-system-requirements = { cuda = "12" }
-channels = ["nvidia"]
-
-[feature.nvidia.target.linux-64.dependencies]
-cuda-toolkit = "12.*" # for compute-sanitizer etc.
-cuda-gdb = "12.*"     # for GPU kernel debugging
-nsight-compute = "*"  # interactive kernel profiling
-
-[feature.nvidia.target.linux-64.pypi-dependencies]
-torch = { version = "==2.7.1", index = "https://download.pytorch.org/whl/cu128" }
-nvidia-ml-py = "*"
-
-[feature.nvidia.target.linux-aarch64.dependencies]
-cuda-toolkit = "12.*" # for compute-sanitizer etc.
-cuda-gdb = "12.*"     # for GPU kernel debugging
-nsight-compute = "*"  # interactive kernel profiling
-
-[feature.nvidia.target.linux-aarch64.pypi-dependencies]
-torch = { version = "==2.9.0", index = "https://download.pytorch.org/whl/cu130" }
-nvidia-ml-py = "*"
-
-[feature.amd]
-system-requirements = {}
-
-[feature.amd.target.linux-64.pypi-dependencies]
-torch = { version = "==2.7.1", index = "https://download.pytorch.org/whl/rocm6.3" }
-pytorch-triton-rocm = {version = "*", index = "https://download.pytorch.org/whl/rocm6.3" }
 
 [feature.apple]
 system-requirements = { macos = "15.0" }
@@ -47,10 +18,8 @@ mdbook = ">=0.4.48,<0.5"
 pre-commit = ">=4.2.0,<5"
 
 [environments]
-nvidia = { features = ["nvidia"], solve-group = "nvidia" }
-amd = { features = ["amd"], solve-group = "amd" }
 apple = { features = ["apple"], solve-group = "apple" }
-default = { features = ["nvidia"] }
+default = { features = ["apple"] }
 
 [tasks]
 install-pre-commit = "pre-commit install"
