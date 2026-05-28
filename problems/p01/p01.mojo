@@ -20,6 +20,7 @@ def add_10(
     a: UnsafePointer[Scalar[dtype], MutAnyOrigin],
 ):
     var i = thread_idx.x
+    output[i] = a[i] + 10
     # FILL ME IN (roughly 1 line)
 
 

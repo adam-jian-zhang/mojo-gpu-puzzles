@@ -21,6 +21,8 @@ def add_10_guard(
     size: Int,
 ):
     var i = thread_idx.x
+    if i < SIZE:
+        output[i] = a[i] + 10
     # FILL ME IN (roughly 2 lines)
 
 

@@ -21,6 +21,7 @@ def add(
     b: UnsafePointer[Scalar[dtype], MutAnyOrigin],
 ):
     var i = thread_idx.x
+    output[i] = a[i] + b[i]
     # FILL ME IN (roughly 1 line)
 
 

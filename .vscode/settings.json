@@ -1,0 +1,24 @@
+{
+    "terminal.integrated.profiles.osx": {
+        "Pixi Shell": {
+            "path": "/bin/zsh",
+            "args": [
+                "-l",
+                "-i",
+                "-c",
+                "pixi shell"
+            ]
+        }
+    },
+    "terminal.integrated.profiles.linux": {
+        "Pixi Shell": {
+            "path": "pixi",
+            "args": [
+                "shell"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "Pixi Shell",
+    "terminal.integrated.defaultProfile.linux": "Pixi Shell",
+    "editor.foldingStrategy": "indentation"
+}
